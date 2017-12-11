@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package javabermatech;
+
+import java.io.IOException;
+import javabermatech.Send;
 import javabermatech.ImpressaoNaoFiscal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 import javax.swing.Timer;
 
 /**
@@ -18,11 +22,11 @@ public class JavaBermatech {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, TimeoutException {
         boolean repeat = true;
         
         while (repeat) {
-            Thread.currentThread().sleep(5000);        
+            Thread.currentThread().sleep(10000);        
 
             ImpressaoNaoFiscal ImpressaoNaoFiscalObj = new ImpressaoNaoFiscal();
 
@@ -30,9 +34,9 @@ public class JavaBermatech {
 
             System.out.println(listaImpressoras.get(2));
 
-//            ImpressaoNaoFiscalObj.detectaImpressoras(listaImpressoras.get(2));
+            ImpressaoNaoFiscalObj.detectaImpressoras(listaImpressoras.get(2));
 
-//            System.out.println(ImpressaoNaoFiscalObj.imprime("Ei"));
+            System.out.println(ImpressaoNaoFiscalObj.imprime("Ei"));
         }
     }
     
